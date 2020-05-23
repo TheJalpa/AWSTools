@@ -17,3 +17,19 @@ It should be noted that any of these can be edited of course, you can change the
 You can also change the action instead of stopping the instance to perhaps edit the security group.
 
 The output of the log will be in the cloudwatch group of the lambda you create.  
+
+### How to use it and set it up
+- We will start by creating a Lambda.  Go to Lambda, create a function.
+- We will "author from scratch", and give it a name.  For instance, EC2Handler.  Runtime will be Python3.8.
+- Once the function is created, insert the lambda code from ec2handler.py, save the function.
+- Go to IAM, and then find the role that was created for your lambda.  Attach a policy, then select "Create new" 
+- Go to the JSON tab and paste in the contents of "role.json", save this policy as something recognizeable with good naming standards.
+- Go to cloudwatch and events, then rules.  We will create a new rule with the following:
+  * Service Name = EC2.  Event Type = EC2 Instance State-change-notification.  Specific state = pending.  Any instance = true.
+  * Target = Name of your lambda.  Click next, and then give your rule a name such as "EC2HandlerRule".
+
+- To now test this, you can either create a new ec2, or stop and start an existing instance that is healthy for testing.
+- Go to cloudwatch log groups and look for the name of your lambda under /aws/lambda/functionnamehere
+
+Once you check this log, you should see the lambda grabbing the ID for the machine, telling you if it's older than 2 days or not, checking the security group or not.
+You will then see output of it looking for a disallowed rule and whether it's shutting it down. The machine ID will be present in both the grabbing id for machine, and stopping instance log output.
