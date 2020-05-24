@@ -2,6 +2,7 @@
 
 This terraform plan will allow you to create an EC2 on a very minimal terraform plan.
 The vars file exists so that you can add some tags, specify an AMI and spin an EC2 up in no time.
+The terraform is very minimal with as little as possible to make this thin with easy documentation.
 
 ### How to use
 
