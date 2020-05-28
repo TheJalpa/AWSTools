@@ -39,4 +39,5 @@ In executing pyter-arg.py
 In executing pyter-w-vars.py
 * python3 pyter-w-vars.py --tfstate apply
 * python3 pyter-w-vars.py --tfstate destroy
+
 (ensuring that the vars being passed are renamed under pyvars.py as they will overwrite any vars set in vars.tf)
