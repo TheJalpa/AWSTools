@@ -30,13 +30,13 @@ vars file that we pull in and perhaps name it "robert" instead, now the ec2 name
 ### Example usage of each:
 
 In executing pyter-bas.py
-python3 pyter-bas.py
+* python3 pyter-bas.py
 
 In executing pyter-arg.py
-python3 pyter-arg.py --tfstate apply
-python3 pyter-arg.py --tfstate destroy
+* python3 pyter-arg.py --tfstate apply
+* python3 pyter-arg.py --tfstate destroy
 
 In executing pyter-w-vars.py
-python3 pyter-w-vars.py --tfstate apply
-python3 pyter-w-vars.py --tfstate destroy
+* python3 pyter-w-vars.py --tfstate apply
+* python3 pyter-w-vars.py --tfstate destroy
 (ensuring that the vars being passed are renamed under pyvars.py as they will overwrite any vars set in vars.tf)
